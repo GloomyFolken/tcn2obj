@@ -1,10 +1,8 @@
 package ru.gloomyfolken.tcn2obj.obj;
 
-import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.lwjgl.BufferUtils;
 import org.lwjgl.util.vector.Matrix3f;
 import org.lwjgl.util.vector.Vector3f;
 
@@ -97,14 +95,15 @@ public class Shape {
 	    float oc = 1.0f - c;
 	    
 	    Matrix3f mat = new Matrix3f();
-	    FloatBuffer buff = BufferUtils.createFloatBuffer(9);
-	    buff.put(new float[]{
-	    		oc * axis.x * axis.x + c,           oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s,
-                oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,
-                oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,
-	    });
-	    buff.flip();
-	    mat.load(buff);
+		mat.m00 = oc * axis.x * axis.x + c;
+		mat.m01 = oc * axis.x * axis.y - axis.z * s;
+		mat.m02 = oc * axis.z * axis .x + axis.y * s;
+        mat.m10 = oc * axis.x * axis.y + axis.z * s;
+		mat.m11 = oc * axis.y * axis.y + c;
+		mat.m12 = oc * axis.y * axis.z - axis.x * s;
+		mat.m20 = oc * axis.z * axis.x - axis.y * s;
+		mat.m21 = oc * axis.y * axis.z + axis.x * s;
+		mat.m22 = oc * axis.z * axis.z + c;
 	    return mat;
 	}
 }

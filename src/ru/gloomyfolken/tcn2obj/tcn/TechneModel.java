@@ -59,7 +59,7 @@ public class TechneModel {
         		}
         	}
             
-        	byte[] modelXml = IOUtils.toByteArray(zipFile.getInputStream(modelEntry));
+        	byte[] modelXml = IOUtils.toByteArray(zipFile.getInputStream(modelEntry)); 
         	zipFile.close();
             
             if (modelXml == null)
