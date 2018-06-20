@@ -86,10 +86,10 @@ public class Converter {
 				.append(frontTopRight, createUV(box, box.sizeZ+box.sizeX, box.sizeZ, -box.sizeX, true))
 				);
 		}
-		
+
 		shape.rotate(-box.rotateAngleX, 1, 0, 0);
-		shape.rotate(-box.rotateAngleY, 0, 1, 0);
 		shape.rotate(-box.rotateAngleZ, 0, 0, 1);
+		shape.rotate(-box.rotateAngleY, 0, 1, 0);
 		
 		shape.translate(new Vector3f(box.rotationPointX, box.rotationPointY, box.rotationPointZ));
 		

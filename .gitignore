@@ -27,3 +27,7 @@ local.properties
 
 # PDT-specific
 .buildpath
+
+.gradle
+.idea
+build
